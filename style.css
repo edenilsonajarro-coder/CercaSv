@@ -330,3 +330,8 @@ button,a,input{min-width:0}
 @media(max-width:760px){.shop-logo{flex-basis:42px;width:42px;height:42px}.shop-logo-handle{left:12px;top:4px}.shop-logo-bag{left:6px;top:13px;width:27px;height:23px}}
 
 .location-action{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}.location-action span{font-size:11px}@media(max-width:760px){.location-action{max-width:105px;padding:7px 8px!important;font-size:11px}.location-action span{overflow:hidden;text-overflow:ellipsis}}
+
+/* Header simplificado: ubicación y notificaciones, cuenta solo en navegación inferior */
+.notification-action{position:relative;display:inline-grid;place-items:center;width:42px;height:42px;padding:0!important;border-radius:50%!important;background:#ffffff18!important;border:1px solid #ffffff38!important;color:white!important;font-size:18px}
+.location-action{max-width:190px}
+@media(max-width:760px){.nav-actions{display:flex;align-items:center}.notification-action{width:36px;height:36px;flex:0 0 36px}.location-action{max-width:125px;overflow:hidden}.location-action span{white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.nav-actions .login{display:none!important}}
