@@ -1,16 +1,19 @@
-CercaSV — proyecto inicial
-================================
+CercaSV — proyecto web
+=====================
 
-Archivos:
+Archivos principales:
 - index.html: estructura de la página
-- style.css: estilos y colores
-- app.js: interacciones básicas
+- style.css: estilos
+- app.js: interacciones y conexión con Supabase
+- .github/workflows/pages.yml: publicación automática en GitHub Pages
 
-Cómo abrir:
-1. Extrae esta carpeta en tu teléfono.
-2. En Acode, usa Open folder / Abrir carpeta y selecciona CercaSV_proyecto.
-3. Abre index.html.
-4. Usa Preview (triángulo) para visualizar.
+Desarrollo local:
+1. Abre la carpeta del proyecto en Acode o un editor.
+2. Abre index.html con Preview o un servidor local.
 
-Esta versión es una maqueta local. No tiene base de datos, registro real, productos reales ni compras.
-No borres ni cambies archivos hasta verificar que abre correctamente.
+Publicación:
+- El workflow de GitHub Actions publica el contenido de la raíz.
+- En GitHub, entra a Settings > Pages y selecciona GitHub Actions como fuente.
+- Después de habilitar Pages, los cambios enviados a main pueden publicarse automáticamente.
+
+La aplicación usa Supabase para autenticación y datos. GitHub Pages solo aloja los archivos estáticos; no ejecuta backend propio.
