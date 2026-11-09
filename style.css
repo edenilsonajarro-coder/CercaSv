@@ -315,3 +315,9 @@ html{scroll-padding-top:12px}
 body{max-width:100%;overflow-x:hidden}
 img,video,canvas,svg{max-width:100%}
 button,a,input{min-width:0}
+
+/* Formulario de tienda y mapa responsive */
+#shopForm label{display:flex;flex-direction:column;gap:7px}
+#shopForm select,#shopForm input,#shopForm textarea{width:100%;max-width:100%;box-sizing:border-box}
+#shopMap{width:100%;height:240px;min-height:220px;border-radius:12px;overflow:hidden;touch-action:pan-x pan-y}
+@media(max-width:520px){.modal-backdrop{align-items:flex-start;padding:10px}.modal{max-height:calc(100dvh - 20px);overflow:auto;padding:20px 16px;border-radius:18px}#shopMap{height:220px}}
