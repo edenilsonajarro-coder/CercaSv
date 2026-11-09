@@ -71,3 +71,5 @@
       .seller-banner{align-items:flex-start;flex-direction:column}
     }
     @media(min-width:761px){.hero-art:before{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:#ffb12b22;right:8%;top:15%}}
+
+.product-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}.product-card{border:1px solid var(--line);border-radius:16px;padding:18px;background:#fff}.product-symbol{font-size:28px;background:var(--soft);border-radius:12px;padding:12px;width:max-content}.product-card small,.product-card p,.stock{color:var(--muted);font-size:12px}.product-card h3{margin:8px 0}.product-card p{min-height:32px}.product-card strong{display:block;color:var(--blue);font-size:18px}.stock{display:block;margin-top:8px}@media(max-width:760px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
