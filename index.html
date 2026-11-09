@@ -40,17 +40,11 @@
       function showFailure(message){failure.textContent=message;failure.style.display="block";}
       window.addEventListener("error",function(e){if(e.target&&e.target.tagName==="SCRIPT"){showFailure("CercaSV no pudo cargar un componente ("+(e.target.src||"script")+"). Recarga la página; si continúa, el servicio externo está fallando.");}else if(e.message){showFailure("Error de CercaSV: "+e.message);}});
       window.addEventListener("unhandledrejection",function(e){showFailure("CercaSV encontró un error al conectar. "+(e.reason&&e.reason.message||"Intenta recargar la página."));});
-      function fallback(id,title,body){const b=document.getElementById(id);if(!b)return;b.addEventListener("click",function(){if(!document.getElementById("modal")){const m=document.createElement("div");m.id="modal";m.className="modal-backdrop";m.innerHTML='<section class="modal" role="dialog" aria-modal="true"><button class="modal-close" aria-label="Cerrar">×</button><h2>'+title+'</h2><p>'+body+'</p></section>';document.body.appendChild(m);m.querySelector(".modal-close").onclick=()=>m.remove();m.onclick=e=>{if(e.target===m)m.remove()}}});}
-      fallback("loginBtn","Ingresar","El sistema de acceso no terminó de cargar. Recarga la página e intenta de nuevo.");
-      fallback("sellerBtn","Vender en CercaSV","El sistema de vendedores no terminó de cargar. Recarga la página e intenta de nuevo.");
-      fallback("sellerHeroBtn","Vender en CercaSV","El sistema de vendedores no terminó de cargar. Recarga la página e intenta de nuevo.");
-      fallback("sellerInfoBtn","Vender en CercaSV","El sistema de vendedores no terminó de cargar. Recarga la página e intenta de nuevo.");
-      fallback("cartBtn","Tu carrito","El carrito no terminó de cargar. Recarga la página e intenta de nuevo.");
     })();
   </script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="app.js?v=2be998aa"></script>
+  <script src="app.js?v=4bac8f73"></script>
 </body>
 </html>
