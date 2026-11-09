@@ -321,3 +321,10 @@ button,a,input{min-width:0}
 #shopForm select,#shopForm input,#shopForm textarea{width:100%;max-width:100%;box-sizing:border-box}
 #shopMap{width:100%;height:240px;min-height:220px;border-radius:12px;overflow:hidden;touch-action:pan-x pan-y}
 @media(max-width:520px){.modal-backdrop{align-items:flex-start;padding:10px}.modal{max-height:calc(100dvh - 20px);overflow:auto;padding:20px 16px;border-radius:18px}#shopMap{height:220px}}
+
+/* Logo de tienda CercaSV en el encabezado */
+.shop-logo{position:relative;flex:0 0 48px;width:48px;height:48px;border:2px solid #fff;border-radius:14px;background:linear-gradient(145deg,#fff7e8,#ffe2a8);overflow:hidden}
+.shop-logo-handle{position:absolute;left:15px;top:5px;width:17px;height:13px;border:3px solid #0d47a1;border-bottom:0;border-radius:10px 10px 0 0}
+.shop-logo-bag{position:absolute;left:8px;top:15px;width:30px;height:25px;border-radius:5px 5px 9px 9px;background:linear-gradient(145deg,#ffb12b,#ff9800);border:2px solid #0d47a1;box-shadow:inset 0 -3px 0 #df7d00}
+.shop-logo-bag:before{content:"";position:absolute;left:5px;top:5px;width:16px;height:12px;border-left:2px solid #fff;border-right:2px solid #fff;border-bottom:2px solid #fff;border-radius:0 0 9px 9px}
+@media(max-width:760px){.shop-logo{flex-basis:42px;width:42px;height:42px}.shop-logo-handle{left:12px;top:4px}.shop-logo-bag{left:6px;top:13px;width:27px;height:23px}}
