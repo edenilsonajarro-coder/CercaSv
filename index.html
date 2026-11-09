@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0D47A1">
+  <title>CercaSV | Marketplace de El Salvador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="topline">Compra local • Apoya a los negocios de El Salvador</div>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#" aria-label="CercaSV inicio">
+          <div class="mark" aria-hidden="true">⌂</div>
+          <div class="brand-name">Cerca<span>SV</span></div>
+        </a>
+        <label class="search" aria-label="Buscar productos o tiendas">
+          <span>⌕</span><input id="searchInput" type="search" placeholder="¿Qué estás buscando?" />
+        </label>
+        <div class="nav-actions">
+          <button class="btn btn-outline login" onclick="notify('El acceso de compradores estará disponible en la siguiente etapa.')">Ingresar</button>
+          <button class="btn btn-primary" onclick="notify('El registro de vendedores estará disponible próximamente.')">＋ Vender</button>
+          <button class="btn btn-outline" aria-label="Carrito" onclick="notify('Tu carrito estará disponible cuando agreguemos productos.')">🛒 <span>0</span></button>
+        </div>
+      </div>
+      <nav class="categories" aria-label="Categorías">
+        <a class="chip active" href="#categorias">Todo</a>
+        <a class="chip" href="#categorias">Tecnología</a><a class="chip" href="#categorias">Ropa</a>
+        <a class="chip" href="#categorias">Hogar</a><a class="chip" href="#categorias">Comida</a>
+        <a class="chip" href="#categorias">Belleza</a><a class="chip" href="#categorias">Artesanías</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">HECHO CERCA DE TI</span>
+        <h1>Lo que buscas,<br><em>más cerca.</em></h1>
+        <p>Descubre productos de tiendas y emprendedores salvadoreños. Compra local, encuentra nuevas marcas y apoya a tu comunidad.</p>
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="#categorias">Explorar productos ↗</a>
+          <button class="btn btn-outline" onclick="notify('Pronto podrás solicitar tu espacio como vendedor en CercaSV.')">Quiero vender</button>
+        </div>
+      </div>
+      <div class="hero-art" aria-label="Ilustración de tienda CercaSV">
+        <div class="shop-card">
+          <div class="awning"><span></span><span></span><span></span><span></span><span></span></div>
+          <div class="bag">⌣</div>
+          <div class="shop-word">Cerca<span>SV</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="categorias">
+      <div class="section-head">
+        <div><h2>Explora categorías</h2><p>Encuentra algo para cada necesidad</p></div>
+        <a class="text-link" href="#categorias">Ver todas →</a>
+      </div>
+      <div class="category-grid">
+        <a class="category" href="#productos"><div class="category-icon">📱</div><strong>Tecnología</strong><small>Celulares y más</small></a>
+        <a class="category" href="#productos"><div class="category-icon">👕</div><strong>Ropa y calzado</strong><small>Estilo para todos</small></a>
+        <a class="category" href="#productos"><div class="category-icon">🏠</div><strong>Hogar</strong><small>Tu espacio</small></a>
+        <a class="category" href="#productos"><div class="category-icon">🍽️</div><strong>Comida</strong><small>Sabores locales</small></a>
+        <a class="category" href="#productos"><div class="category-icon">✨</div><strong>Belleza</strong><small>Cuida de ti</small></a>
+        <a class="category" href="#productos"><div class="category-icon">🧵</div><strong>Artesanías</strong><small>Hecho a mano</small></a>
+      </div>
+    </section>
+
+    <section class="section" id="productos">
+      <div class="section-head">
+        <div><h2>Productos destacados</h2><p>Pronto encontrarás aquí ofertas de negocios locales</p></div>
+        <a class="text-link" href="#productos">Ver catálogo →</a>
+      </div>
+      <div class="empty-products" id="emptyState">
+        <div class="big">🛍️</div>
+        <h3>Estamos preparando el mercado</h3>
+        <p>Esta primera versión es la base de CercaSV. Los productos aparecerán cuando habilitemos las tiendas.</p>
+      </div>
+    </section>
+
+    <section class="seller-banner">
+      <div><h2>¿Tienes un negocio en Ilobasco?</h2><p>Prepara tu tienda para llegar a más clientes con CercaSV.</p></div>
+      <button class="btn btn-orange" onclick="notify('En la próxima etapa construiremos el formulario para solicitar una tienda.')">Conocer cómo vender →</button>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot"><span><strong style="color:#0D47A1">Cerca<span style="color:#FF9800">SV</span></strong> · Marketplace de El Salvador</span><span>Proyecto en desarrollo · Ilobasco, Cabañas</span><span>Compra • Vende • Crece</span></div>
+  </footer>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
