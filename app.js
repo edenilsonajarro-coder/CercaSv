@@ -1,5 +1,5 @@
 const SUPABASE_URL="https://kxbcndsjfbngawzvhdpj.supabase.co";
-const SUPABASE_KEY="sb_publishable_cE-XEDxG_5TlE6XCH3gRbA_ymlTB-uU";
+const SUPABASE_KEY="sb_publishable_zRdDOMuJDegj8oWHtYdnKQ_CfNvTJKw";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
 const $=s=>document.querySelector(s); const toast=$("#toast"); let timer,products=[],cart=JSON.parse(localStorage.getItem("cercasv_cart")||"[]"),user=null,profile=null,activeCategory="Todo";
 function notify(m){toast.textContent=m;toast.style.display="block";clearTimeout(timer);timer=setTimeout(()=>toast.style.display="none",3500)}
