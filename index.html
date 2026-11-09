@@ -42,7 +42,7 @@
         <p>Descubre productos de tiendas y emprendedores salvadoreños. Compra local, encuentra nuevas marcas y apoya a tu comunidad.</p>
         <div class="hero-buttons">
           <a class="btn btn-primary" href="#categorias">Explorar productos ↗</a>
-          <button class="btn btn-outline" onclick="notify('Pronto podrás solicitar tu espacio como vendedor en CercaSV.')">Quiero vender</button>
+          <button class="btn btn-outline" id="sellerHeroBtn">Quiero vender</button>
         </div>
       </div>
       <div class="hero-art" aria-label="Ilustración de tienda CercaSV">
@@ -71,19 +71,19 @@
 
     <section class="section" id="productos">
       <div class="section-head">
-        <div><h2>Productos destacados</h2><p>Pronto encontrarás aquí ofertas de negocios locales</p></div>
+        <div><h2>Productos destacados</h2><p>Productos disponibles de tiendas y emprendedores</p></div>
         <a class="text-link" href="#productos">Ver catálogo →</a>
       </div>
       <div class="empty-products" id="emptyState">
         <div class="big">🛍️</div>
-        <h3>Estamos preparando el mercado</h3>
-        <p>Esta primera versión es la base de CercaSV. Los productos aparecerán cuando habilitemos las tiendas.</p>
+        <h3>Cargando productos</h3>
+        <p>Estamos buscando productos disponibles cerca de ti.</p>
       </div>
     </section>
 
     <section class="seller-banner">
-      <div><h2>¿Tienes un negocio en Ilobasco?</h2><p>Prepara tu tienda para llegar a más clientes con CercaSV.</p></div>
-      <button class="btn btn-orange" onclick="notify('En la próxima etapa construiremos el formulario para solicitar una tienda.')">Conocer cómo vender →</button>
+      <div><h2>¿Tienes un negocio en Ilobasco?</h2><p>Solicita tu tienda y entrega tus productos a clientes locales.</p></div>
+      <button class="btn btn-orange" id="sellerInfoBtn">Conocer cómo vender →</button>
     </section>
   </main>
 
