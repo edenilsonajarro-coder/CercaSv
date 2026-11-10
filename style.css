@@ -632,3 +632,18 @@ button .cs-icon{vertical-align:middle}
  .profile-settings button{gap:8px;padding-inline:10px}
  .order-status-strip button b{overflow-wrap:anywhere}
 }
+
+
+/* Corrección de etiquetas y navegación inferior móvil */
+#bottomNav{grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch}
+#bottomNav .bottom-tab{min-width:0;min-height:64px;gap:4px;padding:7px 2px;color:#64748b}
+#bottomNav .bottom-tab .cs-icon{display:block;width:25px;height:25px;flex:0 0 25px}
+#bottomNav .bottom-tab>span:not(.cs-icon){display:block;font-size:12px!important;line-height:1.15;font-weight:700;text-align:center;white-space:normal;overflow-wrap:anywhere;color:inherit}
+#bottomNav .bottom-tab.active{color:#0d47a1;background:#eaf2ff;border-color:#d7e7ff}
+@media(max-width:760px){
+ #bottomNav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px;padding:5px 8px calc(5px + env(safe-area-inset-bottom));}
+ #bottomNav .bottom-tab{min-height:60px;border-radius:12px}
+ #bottomNav .bottom-tab>span:not(.cs-icon){font-size:11px!important;line-height:1.15;max-width:100%;overflow-wrap:anywhere}
+ #bottomNav .bottom-tab .cs-icon{width:23px;height:23px;flex-basis:23px}
+}
+@media(max-width:390px){#bottomNav .bottom-tab>span:not(.cs-icon){font-size:10px!important}#bottomNav .bottom-tab{padding-inline:1px}}
