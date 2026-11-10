@@ -717,3 +717,7 @@ button .cs-icon{vertical-align:middle}
  body.profile-mode main.wrap,body.business-mode main.wrap{padding-bottom:calc(90px + env(safe-area-inset-bottom))!important}
 }
 @media(max-width:360px){#bottomNav .bottom-tab>span:not(.cs-icon){font-size:10px!important}#bottomNav{padding-inline:5px!important}}
+
+
+/* Evitar espacio vacío al entrar en Mi cuenta o Mi negocio */
+@media(max-width:760px){body.profile-mode .page-screen{min-height:0!important;height:auto!important;padding-top:12px!important;padding-bottom:12px!important;margin-bottom:0!important}body.profile-mode main.wrap{min-height:0!important;height:auto!important;padding-bottom:calc(82px + env(safe-area-inset-bottom))!important}body.profile-mode #businessContent{min-height:0!important;height:auto!important;margin-bottom:0!important}body.profile-mode .business-dashboard{min-height:0!important;align-content:start}body.profile-mode .profile-hero{margin-bottom:12px!important}body.profile-mode .profile-shortcuts{margin-bottom:16px!important}}
