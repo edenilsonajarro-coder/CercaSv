@@ -597,3 +597,38 @@ body.profile-mode header .search,body.profile-mode header .quick-links{display:n
 
 /* Iconografía consistente en panel vendedor, cuenta y administración */
 .account-tile>span,.business-shortcut>span{display:grid;place-items:center}.account-tile .cs-icon,.business-shortcut .cs-icon{width:25px;height:25px;flex-basis:25px;stroke-width:1.8}.account-avatar .cs-icon{width:32px;height:32px;flex-basis:32px}.business-shortcut .cs-icon{color:#0d47a1}.account-tile:focus-visible,.business-shortcut:focus-visible,.profile-settings button:focus-visible{outline:3px solid #80b7ff;outline-offset:2px}
+
+
+/* Ajuste seguro de iconos CercaSV: tamaños por pantalla y contención */
+.cs-icon{width:1.25em;height:1.25em;flex:0 0 1.25em;max-width:100%;overflow:visible;pointer-events:none}
+.cs-icon use{pointer-events:none}
+.profile-shortcuts .shortcut-icon,.profile-settings button>span,.business-shortcut>span,.account-tile>span{min-width:0;overflow:hidden}
+.profile-shortcuts .shortcut-icon .cs-icon,.profile-settings button>span .cs-icon,.business-shortcut>span .cs-icon,.account-tile>span .cs-icon{width:22px;height:22px;flex:0 0 22px}
+.profile-settings button>span{flex:0 0 34px;width:34px;height:34px;border-radius:10px;background:#f0f5fc}
+.profile-settings button>span .cs-icon{stroke-width:1.75}
+.profile-section h2>span .cs-icon{width:20px;height:20px;flex-basis:20px}
+.order-status-strip button span{display:grid;place-items:center;min-height:26px}
+.order-status-strip button span .cs-icon{width:23px;height:23px;flex:0 0 23px}
+.profile-avatar button{display:grid;place-items:center}
+.profile-avatar button .cs-icon{width:15px;height:15px;flex:0 0 15px}
+.business-shortcut,.account-tile{min-width:0;overflow:hidden}
+.business-shortcut>span,.account-tile>span{flex:0 0 42px;width:42px;height:42px;border-radius:12px;background:#edf4ff}
+.business-shortcut>span .cs-icon,.account-tile>span .cs-icon{width:23px;height:23px;flex-basis:23px}
+button .cs-icon{vertical-align:middle}
+@media(max-width:760px){
+ .cs-icon{width:20px;height:20px;flex-basis:20px;stroke-width:1.75}
+ .profile-shortcuts .shortcut-icon .cs-icon,.profile-settings button>span .cs-icon{width:20px;height:20px;flex-basis:20px}
+ .order-status-strip button span .cs-icon{width:21px;height:21px;flex-basis:21px}
+ .profile-settings button>span{flex-basis:32px;width:32px;height:32px}
+ .business-shortcut>span,.account-tile>span{flex-basis:36px;width:36px;height:36px}
+ .business-shortcut>span .cs-icon,.account-tile>span .cs-icon{width:20px;height:20px;flex-basis:20px}
+ .profile-section h2{min-width:0}
+ .profile-section h2>span{display:grid;place-items:center;flex:0 0 22px}
+}
+@media(max-width:390px){
+ .profile-shortcuts{grid-template-columns:repeat(3,minmax(0,1fr))}
+ .profile-shortcuts>button{min-width:0;overflow:hidden}
+ .profile-shortcuts b,.profile-shortcuts small{max-width:100%;overflow-wrap:anywhere}
+ .profile-settings button{gap:8px;padding-inline:10px}
+ .order-status-strip button b{overflow-wrap:anywhere}
+}
