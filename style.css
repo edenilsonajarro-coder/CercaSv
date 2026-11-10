@@ -930,3 +930,10 @@ body.modal-open{overflow:hidden!important;overscroll-behavior:none}
 .business-logo-preview img{width:100%;height:100%;object-fit:cover}
 .business-cover-preview{width:100%;height:112px;border-radius:12px;background:linear-gradient(120deg,#082b65,#0d47a1 62%,#42a5f5);background-size:cover;background-position:center}
 @media(max-width:520px){.business-store-cover{height:118px}.business-store-identity{gap:10px;padding-inline:12px}.business-store-avatar{width:58px;height:58px;flex-basis:58px}.business-store-name h2{font-size:17px}.business-store-actions{padding-inline:12px}.business-metrics-enhanced{grid-template-columns:repeat(2,minmax(0,1fr))}.business-shortcuts-enhanced{gap:8px}.business-shortcuts-enhanced .business-shortcut{padding:12px;min-height:105px}.business-product-row{gap:10px}.business-product-main>img,.business-product-placeholder{width:42px;height:42px;flex-basis:42px}}
+
+
+/* Ajustes de carga de imágenes */
+.product-symbol img,.store-product-image img,.store-avatar img,.business-store-avatar img{display:block}
+.store-product-image{background:linear-gradient(110deg,#f1f5fa 8%,#e8eef6 18%,#f1f5fa 33%);background-size:200% 100%}
+.store-product-image img{background:#f3f7fc}
+.store-cover,.business-store-cover{background-repeat:no-repeat;background-size:cover;background-position:center}
