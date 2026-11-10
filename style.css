@@ -680,3 +680,8 @@ button .cs-icon{vertical-align:middle}
 @media(max-width:390px){#bottomNav .bottom-tab>span:not(.cs-icon){font-size:10px!important}}
 /* Cuenta: ya existe acceso directo a pedidos; evitar repetición */
 .profile-shortcuts{margin-bottom:24px}
+
+
+/* Sin accesos decorativos; conservar Vender como acción real en móvil */
+.quick-links{display:none!important}
+@media(max-width:760px){.nav-actions #sellerBtn{display:inline-flex!important;order:2;flex:0 0 auto;padding:8px 10px;font-size:12px}.nav-actions{flex-wrap:nowrap}.nav-actions .location-action{display:none}}
