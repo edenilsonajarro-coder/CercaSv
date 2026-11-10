@@ -17,14 +17,14 @@ async function openStore(storeId){
  if(cached&&Date.now()-cached.time<60000){shop=cached.shop;items=cached.items;error=null;itemsError=null}
  else{
   const [shopResult,itemsResult]=await Promise.all([
-   db.from("negocios").select("id,nombre,descripcion,municipio,departamento,telefono,categoria,modalidad_atencion,logo_url,portada_url,imagen_url,banner_url,estado").eq("id",storeId).maybeSingle(),
+   db.from("negocios").select("id,nombre,descripcion,municipio,departamento,telefono,categoria,modalidad_atencion,logo_url,portada_url,estado").eq("id",storeId).maybeSingle(),
    db.from("productos").select("id,negocio_id,nombre,descripcion,precio,stock,imagen_url,categoria_id,creado_en,negocios(id,nombre,municipio,departamento),categorias(nombre)").eq("negocio_id",storeId).eq("activo",true).gt("stock",0).order("creado_en",{ascending:false})
   ]);
   shop=shopResult.data;items=itemsResult.data;error=shopResult.error;itemsError=itemsResult.error;
   if(!error&&shop)storeCache.set(String(storeId),{shop,items:items||[],time:Date.now()});
  }
  if(error||!shop){notify(error?.message||"No encontramos esta tienda.");$("#modal")?.remove();document.body.classList.remove("modal-open");return}
- if(itemsError)notify("No se pudieron cargar los productos de esta tienda.");
+ if(itemsError){console.error("Store products:",itemsError);notify("No se pudieron cargar los productos de esta tienda.");}
  const list=items||[],cats=["Todos",...new Set(list.map(x=>x.categorias?.nombre).filter(Boolean))];
  const location=[shop.municipio,shop.departamento].filter(Boolean).join(", ");
  const delivery=shop.modalidad_atencion==="delivery"?"Delivery":shop.modalidad_atencion==="recogida"?"Recogida en local":shop.modalidad_atencion==="ambas"?"Delivery y recogida":"";
@@ -137,7 +137,7 @@ function editBusinessStore(shop,screen){
  logoInput.onchange=()=>previewFile(logoInput,$("#businessLogoPreview"),"logo");
  coverInput.onchange=()=>previewFile(coverInput,$("#businessCoverPreview"),"cover");
  form.onsubmit=async e=>{e.preventDefault();const btn=$("#saveBusinessBrand");btn.disabled=true;btn.textContent="Guardando…";const fd=new FormData(form),payload={nombre:String(fd.get("nombre")).trim(),descripcion:String(fd.get("descripcion")||"").trim(),categoria:fd.get("categoria"),telefono:String(fd.get("telefono")||"").trim(),modalidad_atencion:fd.get("modalidad_atencion")};for(const [kind,file] of [["logo",logoFile],["portada",coverFile]]){if(!file)continue;const path=shop.id+"/"+kind+"/"+Date.now()+"-"+crypto.randomUUID()+"."+file.type.split("/")[1].replace("jpeg","jpg");const {data:uploaded,error:uploadError}=await db.storage.from("tiendas").upload(path,file,{contentType:file.type,cacheControl:"31536000",upsert:false});if(uploadError){notify("No se pudo subir "+(kind==="logo"?"el logotipo":"la portada")+": "+uploadError.message);btn.disabled=false;btn.textContent="Guardar cambios";return}const {data:publicData}=db.storage.from("tiendas").getPublicUrl(uploaded.path);payload[kind==="logo"?"logo_url":"portada_url"]=publicData.publicUrl}
- const {error}=await db.from("negocios").update(payload).eq("id",shop.id).eq("propietario_id",user.id);if(error){notify("No se pudieron guardar los cambios: "+error.message);btn.disabled=false;btn.textContent="Guardar cambios";return}$("#modal")?.remove();document.body.classList.remove("modal-open");notify("La imagen y los datos de tu tienda se actualizaron");await renderBusinessPage(screen)
+ const {error}=await db.from("negocios").update(payload).eq("id",shop.id).eq("propietario_id",user.id);if(error){notify("No se pudieron guardar los cambios: "+error.message);btn.disabled=false;btn.textContent="Guardar cambios";return}$("#modal")?.remove();document.body.classList.remove("modal-open");storeCache.delete(String(shop.id));notify("La imagen y los datos de tu tienda se actualizaron");await renderBusinessPage(screen)
  };
 }
 async function renderBusinessPage(screen){
