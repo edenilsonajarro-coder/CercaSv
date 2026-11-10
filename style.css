@@ -351,3 +351,12 @@ button,a,input{min-width:0}
 
 .notification-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:12px}.notification-head p{margin:0;color:#64748b;font-size:12px}.notification-head .btn{font-size:11px;padding:8px}
 .notification-item{display:flex;align-items:flex-start;gap:10px;padding:13px;border:1px solid #e5edf5;border-radius:13px;margin-bottom:9px;background:#fff}.notification-item.unread{background:#f4f8ff;border-color:#cfe0fa}.notification-dot{width:8px;height:8px;flex:0 0 8px;border-radius:50%;background:#1768d2;margin-top:5px}.notification-item.read .notification-dot{background:#cbd5e1}.notification-item>div{flex:1;min-width:0}.notification-item b{font-size:13px}.notification-item p{font-size:12px;color:#64748b;margin:4px 0}.notification-item small{font-size:10px;color:#94a3b8}.notification-read{border:0;background:transparent;color:#1768d2;font-size:19px;padding:0 3px}
+
+/* Portada: CTA de compra y espacio reservado para publicidad */
+.hero-buttons #sellerHeroBtn{display:none!important}
+.hero-art.ad-space{min-height:260px;display:flex;align-items:stretch;justify-content:stretch;padding:24px;position:relative}
+.ad-label{position:absolute;top:12px;right:16px;font-size:9px;font-weight:800;letter-spacing:.9px;color:#dceaff;background:#ffffff18;border:1px solid #ffffff30;border-radius:999px;padding:5px 9px}
+.ad-placeholder{width:100%;min-height:220px;border:1px dashed #ffffff65;border-radius:18px;background:linear-gradient(145deg,#ffffff12,#ffffff05);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#fff}
+.ad-brand{font-size:23px;font-weight:900;letter-spacing:-.8px}.ad-brand span{color:#ffad21}
+.ad-placeholder strong{font-size:clamp(16px,2vw,22px);margin:12px 0 5px}.ad-placeholder p{margin:0;color:#dceaff;font-size:12px}.ad-placeholder small{margin-top:18px;color:#c4d9f7;font-size:9px;text-transform:uppercase;letter-spacing:1px}
+@media(max-width:760px){.hero-art.ad-space{min-height:190px;padding:16px 24px 25px}.ad-placeholder{min-height:180px;padding:18px}.ad-label{top:7px;right:28px}}
