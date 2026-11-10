@@ -725,3 +725,13 @@ button .cs-icon{vertical-align:middle}
 
 /* Corrección definitiva: no reservar espacio inferior dentro de las pantallas de cuenta/negocio */
 @media(max-width:760px){body.profile-mode{padding-bottom:0!important}body.profile-mode main.wrap{padding-bottom:0!important;margin-bottom:0!important}body.profile-mode .page-screen{min-height:0!important;padding-bottom:0!important}body.profile-mode #businessContent{padding-bottom:0!important}body.profile-mode .profile-logout{margin-bottom:12px!important}}
+
+
+/* Ajuste real: el contenido de cuenta/negocio debe poder desplazarse por encima de la navegación fija */
+@media(max-width:760px){
+ body.profile-mode{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important}
+ body.profile-mode main.wrap{padding-bottom:calc(76px + env(safe-area-inset-bottom))!important;margin-bottom:0!important}
+ body.profile-mode .page-screen{min-height:0!important;height:auto!important;padding-top:12px!important;padding-bottom:12px!important;margin-bottom:0!important}
+ body.profile-mode #businessContent{min-height:0!important;height:auto!important;margin-bottom:0!important;padding-bottom:12px!important}
+ body.profile-mode .business-dashboard{min-height:0!important;align-content:start}
+}
