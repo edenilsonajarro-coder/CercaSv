@@ -663,3 +663,20 @@ button .cs-icon{vertical-align:middle}
 }
 @media(max-width:360px){#bottomNav{padding-left:6px;padding-right:6px;gap:2px}#bottomNav .bottom-tab{min-height:52px}#bottomNav .bottom-tab>span:not(.cs-icon){font-size:9.5px!important}.quick-links{gap:4px}.quick-links .quick-link{padding-inline:2px}}
 @media(prefers-reduced-motion:reduce){#bottomNav .bottom-tab:active{transform:none}}
+
+
+/* Navegación inferior: SVG con proporción fija, sin estiramiento */
+#bottomNav{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+#bottomNav .bottom-tab{box-sizing:border-box;min-width:0;max-width:100%;overflow:hidden;flex:initial;display:flex;flex-direction:column;align-items:center;justify-content:center}
+#bottomNav .bottom-tab>svg.cs-icon{display:block!important;width:24px!important;height:24px!important;min-width:24px!important;max-width:24px!important;min-height:24px!important;max-height:24px!important;flex:0 0 24px!important;aspect-ratio:1/1;object-fit:contain;overflow:visible;transform:none}
+#bottomNav .bottom-tab>span:not(.cs-icon){display:block;flex:0 0 auto;width:100%;min-width:0;max-width:100%;box-sizing:border-box;text-align:center;line-height:1.15;overflow-wrap:normal;word-break:normal;white-space:normal}
+#bottomNav .bottom-tab.active{transform:none}
+@media(max-width:760px){
+ #bottomNav{grid-template-columns:repeat(4,minmax(0,1fr));align-items:stretch}
+ #bottomNav .bottom-tab{padding:6px 1px;gap:4px;min-height:58px}
+ #bottomNav .bottom-tab>svg.cs-icon{width:23px!important;height:23px!important;min-width:23px!important;max-width:23px!important;min-height:23px!important;max-height:23px!important;flex-basis:23px!important}
+ #bottomNav .bottom-tab>span:not(.cs-icon){font-size:11px!important;font-weight:700;letter-spacing:0;line-height:1.15}
+}
+@media(max-width:390px){#bottomNav .bottom-tab>span:not(.cs-icon){font-size:10px!important}}
+/* Cuenta: ya existe acceso directo a pedidos; evitar repetición */
+.profile-shortcuts{margin-bottom:24px}
