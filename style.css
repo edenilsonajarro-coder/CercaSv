@@ -535,3 +535,26 @@ main.wrap>.hero[hidden],main.wrap>.section[hidden]{display:none!important}
  .brand-lockup{max-width:calc(100vw - 235px)}
  .brand-name{font-size:22px}
 }
+
+
+/* Header móvil: grid real para que ubicación no compita con campana y carrito */
+@media(max-width:760px){
+ header .nav{display:grid;grid-template-columns:minmax(0,1fr) 42px 58px;grid-template-areas:"brand bell cart" "location location location";column-gap:7px;row-gap:9px;align-items:center}
+ header .nav .brand{grid-area:brand;min-width:0;max-width:100%;display:flex;gap:8px}
+ header .nav .nav-actions{display:contents}
+ header .nav .location-action{grid-area:location;display:flex;width:100%;min-width:0;height:37px;min-height:37px;max-width:100%;box-sizing:border-box}
+ header .nav .notification-action{grid-area:bell;width:42px;min-width:42px;height:42px;padding:0;justify-self:center}
+ header .nav .cart-action{grid-area:cart;width:58px;min-width:58px;height:42px;padding:0 6px;justify-self:end}
+ header .nav #sellerBtn{display:none}
+ header .nav .brand-lockup{max-width:none;flex:1;min-width:0}
+ header .nav .brand-name{font-size:24px}
+ header .nav .brand-lockup small{display:block;max-width:100%;font-size:8px;overflow:hidden;text-overflow:ellipsis}
+ header .nav .brand-mini-banner{display:none}
+ header .nav .location-action #locationLabel{max-width:calc(100vw - 72px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+@media(max-width:390px){
+ header .nav{grid-template-columns:minmax(0,1fr) 39px 52px;column-gap:5px}
+ header .nav .notification-action{width:39px;min-width:39px;height:39px}
+ header .nav .cart-action{width:52px;min-width:52px;height:39px}
+ header .nav .brand-name{font-size:22px}
+}
