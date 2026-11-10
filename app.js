@@ -37,10 +37,29 @@ function addressForm(a={}){modal(a.id?"Editar dirección":"Nueva dirección",'<f
 let lat=a.latitud||13.8417,lng=a.longitud||-89.36,marker;const map=L.map("map").setView([lat,lng],13);L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap"}).addTo(map);function place(x,y){lat=x;lng=y;if(marker)marker.setLatLng([x,y]);else marker=L.marker([x,y]).addTo(map)}if(a.latitud&&a.longitud)place(lat,lng);map.on("click",e=>place(e.latlng.lat,e.latlng.lng));$("#locate").onclick=()=>navigator.geolocation?.getCurrentPosition(pos=>{lat=pos.coords.latitude;lng=pos.coords.longitude;map.setView([lat,lng],16);place(lat,lng)},()=>notify("No se pudo obtener ubicación. Revisa el permiso del navegador."));$("#addressForm").onsubmit=async e=>{e.preventDefault();const f=new FormData(e.target),payload={usuario_id:user.id,etiqueta:f.get("etiqueta"),departamento:f.get("departamento"),municipio:f.get("municipio"),colonia:f.get("colonia"),direccion:f.get("direccion"),referencias:f.get("referencias"),predeterminada:f.has("predeterminada"),latitud:marker?lat:null,longitud:marker?lng:null};if(payload.predeterminada)await db.from("direcciones_entrega").update({predeterminada:false}).eq("usuario_id",user.id);let res=a.id?await db.from("direcciones_entrega").update(payload).eq("id",a.id).eq("usuario_id",user.id):await db.from("direcciones_entrega").insert(payload);if(res.error){notify(res.error.message);return}$("#modal").remove();notify("Dirección guardada")}}
 async function checkout(){
  if(!user){authModal();return}
- const {data:addresses,error}=await db.from("direcciones_entrega").select("*").eq("usuario_id",user.id).order("predeterminada",{ascending:false});
- if(error||!addresses?.length){notify("Primero agrega una dirección de entrega.");addressPanel();return}
- const valid=cart.map(x=>({producto_id:x.id,cantidad:x.qty,negocio_id:products.find(p=>p.id===x.id)?.negocio_id})).filter(x=>x.negocio_id);
- if(!valid.length){notify("No hay productos válidos en el carrito.");return}
+ const {data:addresses,error:addressError}=await db.from("direcciones_entrega").select("*").eq("usuario_id",user.id).order("predeterminada",{ascending:false});
+ if(addressError||!addresses?.length){notify("Primero agrega una dirección de entrega.");addressPanel();return}
+ if(!cart.length){notify("Tu carrito está vacío.");cartModal();return}
+ const ids=cart.map(x=>x.id);
+ const {data:liveProducts,error:productError}=await db.from("productos").select("id,negocio_id,nombre,precio,stock,activo").in("id",ids);
+ if(productError){notify("No se pudo validar el catálogo. Intenta nuevamente.");return}
+ const live=new Map((liveProducts||[]).map(p=>[String(p.id),p]));
+ let changed=false;
+ const nextCart=[];
+ for(const item of cart){
+  const p=live.get(String(item.id));
+  if(!p||!p.activo||Number(p.stock)<=0){changed=true;continue}
+  const qty=Math.min(Number(item.qty)||1,Number(p.stock));
+  if(qty!==item.qty||Number(item.price)!==Number(p.precio)||item.name!==p.nombre||Number(item.stock)!==Number(p.stock))changed=true;
+  nextCart.push({...item,qty,name:p.nombre,price:Number(p.precio),stock:Number(p.stock),business:item.business});
+ }
+ if(changed){
+  cart=nextCart;saveCart();
+  notify("El catálogo cambió. Revisa las cantidades y precios actualizados antes de continuar.");
+  cartModal();return
+ }
+ const valid=cart.map(x=>({producto_id:x.id,cantidad:x.qty,negocio_id:live.get(String(x.id))?.negocio_id})).filter(x=>x.negocio_id);
+ if(!valid.length){notify("No hay productos disponibles en el carrito.");cartModal();return}
  modal("Confirmar compra",'<p>El carrito se procesará en una sola operación. Cada vendedor recibirá su pedido por separado.</p><label>Dirección<select id="checkoutAddress">'+addresses.map(a=>'<option value="'+a.id+'">'+esc(a.etiqueta+' · '+a.municipio+' · '+a.direccion)+'</option>').join("")+'</select></label><label>Notas<textarea id="checkoutNotes"></textarea></label><p><b>Pago: contraentrega</b></p><p>El envío se calcula en Supabase usando la distancia entre la dirección y cada tienda.</p><button class="btn btn-primary" id="placeOrder">Confirmar compra</button>');
  $("#placeOrder").onclick=async()=>{const btn=$("#placeOrder");btn.disabled=true;btn.textContent="Procesando…";const {data,error}=await db.rpc("crear_compra_multi",{p_direccion_id:$("#checkoutAddress").value,p_items:valid,p_notas:$("#checkoutNotes").value||null});if(error){notify(error.message);btn.disabled=false;btn.textContent="Confirmar compra";return}cart=[];saveCart();$("#modal").remove();notify("Compra enviada. Pago contraentrega.");ordersModal()}
 }
