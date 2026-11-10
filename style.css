@@ -647,3 +647,19 @@ button .cs-icon{vertical-align:middle}
  #bottomNav .bottom-tab .cs-icon{width:23px;height:23px;flex-basis:23px}
 }
 @media(max-width:390px){#bottomNav .bottom-tab>span:not(.cs-icon){font-size:10px!important}#bottomNav .bottom-tab{padding-inline:1px}}
+
+
+/* Pulido adicional móvil: navegación táctil, textos y áreas seguras */
+@media(max-width:760px){
+ #bottomNav{position:fixed;left:0;right:0;bottom:0;z-index:30;width:100%;box-sizing:border-box;min-height:70px;padding:7px 10px calc(7px + env(safe-area-inset-bottom));border-top:1px solid #e5edf7;box-shadow:0 -8px 24px #082b6510;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+ #bottomNav .bottom-tab{min-height:54px;max-height:none;justify-content:center;align-content:center;gap:4px;line-height:1.15;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+ #bottomNav .bottom-tab .cs-icon{flex-shrink:0}
+ #bottomNav .bottom-tab>span:not(.cs-icon){max-width:100%;margin:0;letter-spacing:-.15px}
+ #bottomNav .bottom-tab.active{box-shadow:inset 0 0 0 1px #d6e6ff}
+ #bottomNav .bottom-tab:active{transform:scale(.97)}
+ header .nav .brand{overflow:hidden} header .nav .brand-lockup{min-width:0} header .nav .brand-name{overflow:hidden;text-overflow:ellipsis}
+ .quick-links .quick-link{min-width:0;overflow:hidden}.quick-links .quick-link>span{min-width:0}
+ .quick-links .quick-link b,.quick-links .quick-link small{max-width:100%;overflow:hidden;text-overflow:ellipsis}.search input{min-width:0;max-width:100%}
+}
+@media(max-width:360px){#bottomNav{padding-left:6px;padding-right:6px;gap:2px}#bottomNav .bottom-tab{min-height:52px}#bottomNav .bottom-tab>span:not(.cs-icon){font-size:9.5px!important}.quick-links{gap:4px}.quick-links .quick-link{padding-inline:2px}}
+@media(prefers-reduced-motion:reduce){#bottomNav .bottom-tab:active{transform:none}}
