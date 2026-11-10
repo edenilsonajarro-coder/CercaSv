@@ -704,3 +704,16 @@ button .cs-icon{vertical-align:middle}
 .product-publish input{width:18px;height:18px;accent-color:#0d47a1}
 .product-save{width:100%;min-height:48px;font-weight:800}
 @media(max-width:560px){.product-editor-grid{grid-template-columns:1fr;gap:10px}.product-image-preview img{height:180px;max-height:180px}.product-image-field{padding:11px}.product-editor{gap:12px}}
+
+
+/* Barra inferior estable entre Inicio, Mi cuenta y Negocio */
+@media(max-width:760px){
+ #bottomNav{height:76px!important;min-height:76px!important;max-height:76px!important;box-sizing:border-box;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:2px;padding:5px 8px calc(5px + env(safe-area-inset-bottom))!important}
+ #bottomNav .bottom-tab{height:64px!important;min-height:64px!important;max-height:64px!important;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:center;justify-content:center;align-content:center;gap:3px;padding:4px 1px!important;overflow:hidden;border-radius:12px;transform:none!important}
+ #bottomNav .bottom-tab>svg.cs-icon{display:block!important;position:static!important;width:23px!important;height:23px!important;min-width:23px!important;max-width:23px!important;min-height:23px!important;max-height:23px!important;flex:0 0 23px!important;margin:0!important;transform:none!important}
+ #bottomNav .bottom-tab>span:not(.cs-icon){display:block!important;position:static!important;width:auto!important;max-width:100%!important;min-width:0!important;flex:0 0 auto!important;margin:0!important;padding:0!important;font-size:11px!important;line-height:1.1!important;white-space:nowrap!important;overflow:visible!important;text-overflow:clip!important;word-break:keep-all!important;overflow-wrap:normal!important;text-align:center}
+ body.profile-mode #bottomNav,body.business-mode #bottomNav{height:76px!important;min-height:76px!important;max-height:76px!important}
+ body.profile-mode #bottomNav .bottom-tab,body.business-mode #bottomNav .bottom-tab{height:64px!important;min-height:64px!important;max-height:64px!important}
+ body.profile-mode main.wrap,body.business-mode main.wrap{padding-bottom:calc(90px + env(safe-area-inset-bottom))!important}
+}
+@media(max-width:360px){#bottomNav .bottom-tab>span:not(.cs-icon){font-size:10px!important}#bottomNav{padding-inline:5px!important}}
