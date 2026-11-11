@@ -1,6 +1,7 @@
 const SUPABASE_URL="https://kxbcndsjfbngawzvhdpj.supabase.co";
 const SUPABASE_KEY="sb_publishable_zRdDOMuJDegj8oWHtYdnKQ_CfNvTJKw";
 const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+let notificationChannel=null,notificationUserId=null,notificationUnread=0;
 const $=s=>document.querySelector(s); const toast=$("#toast"); let timer,products=[],storeCache=new Map(),cart=JSON.parse(localStorage.getItem("cercasv_cart")||"[]"),user=null,profile=null,activeCategory="Todo";
 function notify(m){toast.textContent=m;toast.style.display="block";clearTimeout(timer);timer=setTimeout(()=>toast.style.display="none",3500)}
 function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
