@@ -982,6 +982,28 @@ body.modal-open{overflow:hidden!important;overscroll-behavior:none}
 .seller-order-status-label{display:grid;gap:5px;color:#34435a;font-size:11px;font-weight:800}
 .seller-order-status-label select{width:100%;padding:10px;border:1px solid #dce6f2;border-radius:10px;background:#fff;color:#17345e}
 
+
+/* Mis pedidos del comprador: jerarquía visual y lectura rápida */
+.modal-content .buyer-order{display:grid;gap:12px;margin:0 0 13px;padding:15px;border:1px solid #e2eaf4;border-radius:17px;background:linear-gradient(180deg,#fff 0%,#fbfdff 100%);box-shadow:0 4px 14px #102b4d08}
+.buyer-order-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid #edf1f6}
+.buyer-order-head>b{color:#17345e;font-size:13px;letter-spacing:.02em}
+.buyer-order-head .status{flex:0 0 auto;margin:0;padding:6px 10px;background:#eaf2ff;color:#0d47a1;font-weight:800}
+.buyer-order>p{margin:0;color:#526079;font-size:12px;line-height:1.5}
+.buyer-order>p>b{color:#17233b}
+.buyer-order .order-progress{padding:10px 8px;border:1px solid #e8eef6;border-radius:13px;background:#f8fbff;overflow:hidden}
+.buyer-order .order-progress ol{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:3px;margin:0;padding:0;list-style:none}
+.buyer-order .order-progress li{display:grid;justify-items:center;align-content:start;gap:6px;min-width:0;text-align:center;color:#8a97a9}
+.buyer-order .order-progress li>span{display:grid;place-items:center;width:25px;height:25px;border:1px solid #dce5f0;border-radius:50%;background:#fff;font-size:10px;font-weight:800}
+.buyer-order .order-progress li.done>span{border-color:#ccebd9;background:#e8f7ef;color:#16834c}
+.buyer-order .order-progress li.current>span{border-color:#0d47a1;background:#0d47a1;color:#fff;box-shadow:0 0 0 4px #0d47a118}
+.buyer-order .order-progress li.done,.buyer-order .order-progress li.current{color:#23466f}
+.buyer-order .order-progress li small{font-size:9px;line-height:1.25;overflow-wrap:anywhere}
+.buyer-order .order-progress.cancelled{border-color:#f3dada;background:#fff7f7;color:#a33333;font-size:12px;font-weight:800}
+.buyer-order .buyer-shipping-info{margin:0;padding:12px;border:1px solid #e5edf5;border-radius:12px;background:#f5f8fd;line-height:1.5}
+.buyer-order>small{color:#8995a6;font-size:10px}
+.buyer-order>[data-cancel]{width:100%;min-height:40px;border-radius:11px}
+@media(max-width:420px){.buyer-order .order-progress{padding:9px 5px}.buyer-order .order-progress li small{font-size:8px}.buyer-order-head{align-items:flex-start;flex-direction:column}.buyer-order-head .status{margin:0}}
+
 /* Acceso administrativo visible en la navegación inferior de móvil */
 @media(max-width:760px){#bottomNav.admin-mode{grid-template-columns:repeat(5,minmax(0,1fr))!important}#bottomNav.admin-mode #bottomAdmin{display:flex!important}#bottomNav.admin-mode #bottomAdmin>span:first-child{font-size:22px;line-height:1}#bottomNav.admin-mode #bottomAdmin>span:last-child{font-size:10px;font-weight:700}}
 
