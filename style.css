@@ -984,3 +984,23 @@ body.modal-open{overflow:hidden!important;overscroll-behavior:none}
 
 /* Acceso administrativo visible en la navegación inferior de móvil */
 @media(max-width:760px){#bottomNav.admin-mode{grid-template-columns:repeat(5,minmax(0,1fr))!important}#bottomNav.admin-mode #bottomAdmin{display:flex!important}#bottomNav.admin-mode #bottomAdmin>span:first-child{font-size:22px;line-height:1}#bottomNav.admin-mode #bottomAdmin>span:last-child{font-size:10px;font-weight:700}}
+
+/* Panel de administración */
+.admin-loading{padding:28px 12px;text-align:center;color:#68758b}
+.admin-dashboard{display:grid;gap:18px}
+.admin-metrics{margin:0 0 2px}
+.admin-tabs{display:flex;gap:8px;overflow-x:auto;padding:3px 1px 10px;scrollbar-width:thin}
+.admin-tabs button{flex:0 0 auto;border:1px solid #e7edf5;background:#fff;color:#42516a;border-radius:999px;padding:10px 15px;font-weight:700;font-size:13px}
+.admin-tabs button.active{background:#082b65;border-color:#082b65;color:#fff}
+.admin-dashboard [data-admin-panel] h3{margin:4px 0 12px;color:#17233b}
+.admin-dashboard [data-admin-panel]>p{color:#68758b;font-size:13px}
+.admin-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:9px 0;padding:14px;border:1px solid #e7edf5;border-radius:14px;background:#fff}
+.admin-row>div:first-child{min-width:0}
+.admin-row b{display:block;color:#17233b;overflow-wrap:anywhere}
+.admin-row p{margin:5px 0;color:#52617a;font-size:13px}
+.admin-row small{color:#68758b;font-size:12px}
+.admin-row-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
+.admin-row-actions .btn{padding:8px 11px;font-size:12px}
+.admin-user-stats{display:flex;flex-direction:column;align-items:flex-end;gap:5px;flex:0 0 auto;color:#52617a;font-size:12px}
+#adminUserSearch{width:100%;margin:0 0 12px;padding:12px 14px;border:1px solid #dce5f0;border-radius:12px;font:inherit}
+@media(max-width:600px){.admin-row{align-items:flex-start;flex-direction:column}.admin-row-actions{justify-content:flex-start}.admin-user-stats{align-items:flex-start;flex-direction:row;flex-wrap:wrap}.admin-tabs button{padding:9px 12px}}
