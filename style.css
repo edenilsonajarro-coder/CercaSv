@@ -1025,3 +1025,8 @@ body.modal-open{overflow:hidden!important;overscroll-behavior:none}
 .review-form select,.review-form textarea{width:100%;padding:11px;border:1px solid #dce5f0;border-radius:10px;background:#fff;color:#17233b;font:inherit;font-size:13px}
 .review-form textarea{resize:vertical}
 .review-form button{width:100%}
+
+.admin-account-row{align-items:center}
+.admin-account-row>div{display:grid;gap:4px}
+.admin-account-row .btn{flex:0 0 auto}
+@media(max-width:600px){.admin-account-row{align-items:flex-start}}
