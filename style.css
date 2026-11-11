@@ -1128,3 +1128,61 @@ body.modal-open{overflow:hidden!important;overscroll-behavior:none}
 .checkout-confirm-button .checkout-spinner{border-color:#ffffff66;border-top-color:#fff}
 @keyframes checkoutSpin{to{transform:rotate(360deg)}}
 @media(max-width:520px){.checkout-hero{padding:14px}.checkout-hero strong{font-size:15px}.checkout-summary{gap:13px}}
+
+
+/* Fase 2 · pulido visual y accesibilidad de la experiencia móvil */
+.catalog-card{
+  padding:10px;
+  gap:8px;
+  border-color:#e5ebf3;
+  border-radius:17px;
+  box-shadow:0 3px 12px rgba(20,48,84,.045);
+  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease;
+}
+.catalog-card:focus-within{border-color:#9fc4f4;box-shadow:0 0 0 3px rgba(13,71,161,.09)}
+.catalog-card .product-detail{width:100%;text-decoration:none}
+.catalog-card .product-symbol{background:#f5f8fc}
+.catalog-card .product-store{
+  display:block;width:100%;min-width:0;padding:0;border:0;background:transparent;
+  color:#64748b;text-align:left;font-size:10px;font-weight:700;line-height:1.35;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;
+}
+.catalog-card .product-store:hover{color:var(--blue);text-decoration:underline}
+.catalog-card-info{gap:6px}
+.catalog-card-info h3{font-size:13px;line-height:1.35;min-height:2.7em}
+.catalog-card-info>strong{font-size:18px;letter-spacing:-.3px}
+.catalog-card>.add-cart{min-height:42px;border-radius:11px;font-size:12px}
+.catalog-card>.add-cart:disabled{opacity:.55;cursor:not-allowed}
+.favorite-toggle{cursor:pointer;display:grid;place-items:center}
+.btn,.catalog-filter-btn,.catalog-sort-label select,.bottom-tab{transition:background-color .16s ease,border-color .16s ease,transform .16s ease}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{
+  outline:3px solid rgba(66,165,245,.65);outline-offset:2px
+}
+@media(hover:hover) and (pointer:fine){
+  .catalog-card:hover{transform:translateY(-3px);border-color:#cbdcf1;box-shadow:0 12px 25px rgba(13,71,161,.09)}
+  .catalog-card:hover .product-symbol img{transform:scale(1.035)}
+}
+@media(max-width:760px){
+  .section{padding-top:25px}
+  .section-head{align-items:flex-start;margin-bottom:13px}
+  .section-head h2{font-size:20px}
+  .section-head p{max-width:250px;line-height:1.45}
+  .catalog-toolbar{gap:8px}
+  .catalog-filter-btn,.catalog-sort-label select{min-height:44px}
+  .catalog-card{padding:8px;gap:7px;border-radius:15px}
+  .catalog-card .product-symbol{border-radius:11px}
+  .catalog-card-info h3{font-size:12px;min-height:2.7em}
+  .catalog-card-info>strong{font-size:16px}
+  .catalog-card>.add-cart{min-height:40px;font-size:11px}
+}
+@media(max-width:380px){
+  .product-grid{gap:8px}
+  .catalog-card{padding:7px}
+  .catalog-card>.favorite-toggle{top:10px;right:10px;width:30px;height:30px}
+  .catalog-card>.add-cart{font-size:10px}
+  .catalog-sort-label{font-size:10px}
+  .catalog-sort-label select{max-width:132px;padding:0 8px}
+}
+@media(prefers-reduced-motion:reduce){
+  .catalog-card,.catalog-card .product-symbol img,.btn,.catalog-filter-btn,.catalog-sort-label select,.bottom-tab{transition:none}
+}
