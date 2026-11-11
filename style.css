@@ -1036,3 +1036,23 @@ body.modal-open{overflow:hidden!important;overscroll-behavior:none}
 
 /* Estadísticas del vendedor */
 .seller-analytics{display:grid;gap:18px}.seller-analytics-head{display:flex;align-items:center;justify-content:space-between;gap:12px}.seller-analytics-head p,.seller-stats-section>p{margin:4px 0;color:var(--muted,#68758b);font-size:13px}.seller-analytics-head select{max-width:125px;padding:10px;border:1px solid var(--line,#e7edf5);border-radius:10px;background:#fff;color:var(--ink,#17233b)}.seller-stats-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.seller-stats-grid article{display:grid;gap:6px;padding:15px;border:1px solid var(--line,#e7edf5);border-radius:14px;background:#fff;min-width:0}.seller-stats-grid small,.seller-stats-grid span{color:var(--muted,#68758b);font-size:12px}.seller-stats-grid strong{font-size:clamp(19px,5vw,25px);overflow-wrap:anywhere;color:var(--ink,#17233b)}.seller-stats-section{padding:16px;border:1px solid var(--line,#e7edf5);border-radius:14px;background:#fff}.seller-stats-section h3{margin:0;font-size:16px}.seller-chart{height:155px;display:flex;align-items:flex-end;gap:3px;padding-top:16px;overflow:hidden}.seller-chart-col{height:100%;flex:1;min-width:0;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:5px}.seller-chart-bar{width:100%;max-width:22px;min-height:0;border-radius:5px 5px 0 0;background:linear-gradient(180deg,#42a5f5,#0d47a1)}.seller-chart-col small{height:15px;font-size:9px;color:var(--muted,#68758b);white-space:nowrap}.seller-top-products{display:grid;gap:0;margin-top:10px}.seller-top-products>div{display:grid;grid-template-columns:25px minmax(0,1fr) auto;align-items:center;gap:8px;padding:11px 0;border-bottom:1px solid var(--line,#e7edf5)}.seller-top-products>div:last-child{border-bottom:0}.seller-top-products b{font-size:13px;overflow-wrap:anywhere}.seller-top-products strong,.seller-top-products small{font-size:12px;white-space:nowrap}.seller-rank{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;background:var(--soft,#f4f8fd);font-weight:800;font-size:12px}.seller-stats-foot{margin:0;color:var(--muted,#68758b);font-size:12px}.seller-analytics-loading{padding:25px;text-align:center;color:var(--muted,#68758b)}
+
+/* Métodos de entrega CercaSV */
+.delivery-method-choices{display:grid;gap:10px;margin:0;padding:14px;border:1px solid #dce5f0;border-radius:13px;background:#f8fbff}
+.delivery-method-choices legend{padding:0 6px;color:#17233b;font-weight:800;font-size:14px}
+.delivery-method-choices label{display:flex;align-items:center;gap:9px;color:#34435a;font-size:13px;font-weight:650}
+.delivery-method-choices input{width:17px;height:17px;accent-color:#0d47a1}
+.delivery-method-choices small{color:#68758b;font-size:12px;line-height:1.45}
+.checkout-method-title{margin:18px 0 8px;color:#17233b;font-size:16px}
+.checkout-shop-methods{display:grid;gap:11px;margin:10px 0 17px}
+.checkout-shop-method{display:grid;gap:9px;padding:14px;border:1px solid #e2e9f2;border-radius:13px;background:#fff}
+.checkout-shop-method>b{color:#17233b;font-size:14px}
+.checkout-shop-method label,.parcel-quote-form label{display:grid;gap:6px;color:#34435a;font-size:12px;font-weight:700}
+.checkout-shop-method select,.parcel-quote-form input{width:100%;min-height:42px;padding:10px 12px;border:1px solid #dce5f0;border-radius:10px;background:#fff;color:#17233b;font:inherit}
+.checkout-shop-method small{color:#68758b;font-size:12px;line-height:1.45}
+.buyer-shipping-info{margin:10px 0;padding:11px;border-radius:11px;background:#f4f8fd;color:#34435a;font-size:12px}
+.buyer-shipping-info>p{margin:6px 0;color:#52617a}
+.buyer-shipping-info .btn{width:100%;margin-top:8px}
+.parcel-quote-form{display:grid;gap:9px;margin-top:9px;padding:11px;border:1px solid #dce5f0;border-radius:11px;background:#f8fbff}
+.parcel-quote-form button{width:100%}
+.parcel-confirmed{color:#287044;font-weight:700}
