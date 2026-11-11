@@ -18,7 +18,7 @@ async function openStore(storeId){
  if(cached&&Date.now()-cached.time<60000){shop=cached.shop;items=cached.items;error=null;itemsError=null}
  else{
   const [shopResult,itemsResult]=await Promise.all([
-   db.from("negocios").select("id,nombre,descripcion,municipio,departamento,telefono,categoria,modalidad_atencion,logo_url,portada_url,estado").eq("id",storeId).maybeSingle(),
+   db.from("negocios").select("id,nombre,descripcion,municipio,departamento,telefono,categoria,modalidad_atencion,metodos_entrega,logo_url,portada_url,estado").eq("id",storeId).maybeSingle(),
    db.from("productos").select("id,negocio_id,nombre,descripcion,precio,stock,imagen_url,imagenes,categoria_id,creado_en,negocios(id,nombre,municipio,departamento),categorias(nombre)").eq("negocio_id",storeId).eq("activo",true).gt("stock",0).order("creado_en",{ascending:false})
   ]);
   shop=shopResult.data;items=itemsResult.data;error=shopResult.error;itemsError=itemsResult.error;
